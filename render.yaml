@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: sentry-api
+    runtime: docker
+    rootDir: Sentry
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: MODEL_PATH
+        value: models/fake_profile_model.pkl
+      - key: METRICS_PATH
+        value: models/model_metrics.json
+      - key: DATA_DIR
+        value: data
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: DATABASE_URL
+        value: sqlite:///predictions.db
+      - key: LOG_LEVEL
+        value: INFO
